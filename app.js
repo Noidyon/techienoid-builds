@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll(`${requiredSelector}, ${multiSelector}`).forEach(group => {
       if (!isGroupValid(group)) {
         valid = false;
-        const msg = group.matches(multiSelector)
+        var msg = group.matches(multiSelector)
           ? 'Selecione pelo menos uma opção'
           : (group.tagName === 'FIELDSET' ? 'Escolha uma opção' : 'Campo obrigatório');
         if (group.querySelector('input[type="email"]')) {
