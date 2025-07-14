@@ -1,0 +1,43 @@
+{
+  "web3forms": {
+    "html": "<form action=\"https://api.web3forms.com/submit\" method=\"POST\">\n    <input type=\"hidden\" name=\"access_key\" value=\"YOUR_ACCESS_KEY_HERE\">\n    <input type=\"hidden\" name=\"subject\" value=\"Novo Pedido de PC\">\n    <input type=\"text\" name=\"nome\" placeholder=\"Nome\" required>\n    <input type=\"email\" name=\"email\" placeholder=\"Email\" required>\n    <textarea name=\"mensagem\" placeholder=\"Mensagem\"></textarea>\n    <button type=\"submit\">Enviar</button>\n</form>",
+    "javascript": "// Envio com JavaScript (opcional)\ndocument.getElementById('form').addEventListener('submit', async (e) => {\n    e.preventDefault();\n\n    const formData = new FormData(e.target);\n    const response = await fetch('https://api.web3forms.com/submit', {\n        method: 'POST',\n        body: formData\n    });\n\n    if (response.ok) {\n        alert('Enviado com sucesso!');\n    }\n});",
+    "setup_steps": [
+      "1. Visite web3forms.com",
+      "2. Insira seu email",
+      "3. Copie a chave de acesso do email",
+      "4. Substitua YOUR_ACCESS_KEY_HERE"
+    ]
+  },
+  "formsubmit": {
+    "html": "<form action=\"https://formsubmit.co/seuemail@gmail.com\" method=\"POST\">\n    <input type=\"hidden\" name=\"_captcha\" value=\"false\">\n    <input type=\"hidden\" name=\"_subject\" value=\"Novo Pedido de PC\">\n    <input type=\"text\" name=\"nome\" placeholder=\"Nome\" required>\n    <input type=\"email\" name=\"email\" placeholder=\"Email\" required>\n    <textarea name=\"mensagem\" placeholder=\"Mensagem\"></textarea>\n    <button type=\"submit\">Enviar</button>\n</form>",
+    "javascript": "// Envio sem redirecionamento\ndocument.getElementById('form').addEventListener('submit', async (e) => {\n    e.preventDefault();\n\n    const formData = new FormData(e.target);\n    const response = await fetch('https://formsubmit.co/seuemail@gmail.com', {\n        method: 'POST',\n        body: formData\n    });\n\n    if (response.ok) {\n        alert('Enviado com sucesso!');\n    }\n});",
+    "setup_steps": [
+      "1. Substitua 'seuemail@gmail.com' pelo seu email",
+      "2. Envie o formulário pela primeira vez",
+      "3. Confirme no email de ativação",
+      "4. Formulário fica ativo"
+    ]
+  },
+  "emailjs": {
+    "html": "<form id=\"contact-form\">\n    <input type=\"text\" name=\"from_name\" placeholder=\"Nome\" required>\n    <input type=\"email\" name=\"from_email\" placeholder=\"Email\" required>\n    <textarea name=\"message\" placeholder=\"Mensagem\"></textarea>\n    <button type=\"submit\">Enviar</button>\n</form>\n\n<script src=\"https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js\"></script>",
+    "javascript": "// Configuração EmailJS\nemailjs.init(\"YOUR_PUBLIC_KEY\");\n\ndocument.getElementById('contact-form').addEventListener('submit', (e) => {\n    e.preventDefault();\n\n    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target)\n        .then(() => {\n            alert('Enviado com sucesso!');\n        })\n        .catch((error) => {\n            console.error('Erro:', error);\n        });\n});",
+    "setup_steps": [
+      "1. Crie conta no EmailJS",
+      "2. Configure serviço de email (Gmail, etc.)",
+      "3. Crie template de email",
+      "4. Obtenha chaves de API",
+      "5. Configure JavaScript"
+    ]
+  },
+  "netlify": {
+    "html": "<form name=\"contact\" method=\"POST\" data-netlify=\"true\">\n    <input type=\"text\" name=\"nome\" placeholder=\"Nome\" required>\n    <input type=\"email\" name=\"email\" placeholder=\"Email\" required>\n    <textarea name=\"mensagem\" placeholder=\"Mensagem\"></textarea>\n    <button type=\"submit\">Enviar</button>\n</form>",
+    "javascript": "// Não necessário - Netlify processa automaticamente\n// Opcional: adicionar validação personalizada\ndocument.getElementById('form').addEventListener('submit', (e) => {\n    // Validação personalizada aqui\n    console.log('Formulário enviado');\n});",
+    "setup_steps": [
+      "1. Hospede o site no Netlify",
+      "2. Adicione data-netlify='true' ao form",
+      "3. Netlify detecta automaticamente",
+      "4. Veja submissões no dashboard"
+    ]
+  }
+}

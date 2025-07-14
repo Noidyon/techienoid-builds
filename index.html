@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedido de PC Personalizado</title>
+  <!-- Font & Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-color-scheme="dark">
+  <!-- Barra de progresso -->
+  <div id="progressContainer"><div id="progressBar"></div></div>
+
+  <main class="container form-shell">
+    <h1 class="form-title">Pedido de PC Personalizado</h1>
+    <p class="form-subtitle">Preenche o formulário abaixo para receber uma proposta única e ajustada ao teu orçamento.</p>
+
+    <form id="pcForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+      <input type="hidden" name="access_key" value=" ab8d4d35-e10c-475c-aa7e-d75608607ac0 ">
+      <input type="hidden" name="subject" value="Novo Pedido de PC Personalizado">
+      <input type="hidden" name="from_name" value="Formulário PC Personalizado">
+      <input type="hidden" name="redirect" value="false">
+
+      <!-- 1 Nome Completo -->
+      <div class="form-group" data-required>
+        <input type="text" id="nome" name="Nome Completo" class="field-input" required placeholder=" ">
+        <label for="nome" class="floating-label">Nome Completo *</label>
+        <div class="error-text"></div>
+      </div>
+
+      <!-- 2 Email -->
+      <div class="form-group" data-required>
+        <input type="email" id="email" name="Email" class="field-input" required placeholder=" ">
+        <label for="email" class="floating-label">Email para contacto *</label>
+        <div class="error-text"></div>
+      </div>
+
+      <!-- 3 Telefone / WhatsApp -->
+      <div class="form-group">
+        <input type="text" id="telefone" name="Telefone / WhatsApp" class="field-input" placeholder=" ">
+        <label for="telefone" class="floating-label">Telefone / WhatsApp</label>
+      </div>
+
+      <!-- 4 Melhor horário para contacto (radio) -->
+      <fieldset class="form-group choice-set">
+        <legend class="choice-legend">Melhor horário para contacto</legend>
+        <label class="choice-item"><input type="radio" name="Melhor horário" value="Manhã (9h–12h)"> Manhã (9h–12h)</label>
+        <label class="choice-item"><input type="radio" name="Melhor horário" value="Tarde (12h–18h)"> Tarde (12h–18h)</label>
+        <label class="choice-item"><input type="radio" name="Melhor horário" value="Noite (18h–22h)"> Noite (18h–22h)</label>
+        <label class="choice-item"><input type="radio" name="Melhor horário" value="Indiferente"> Indiferente</label>
+      </fieldset>
+
+      <!-- 5 Objetivo principal (checkbox) -->
+      <fieldset class="form-group choice-set" data-required-multi>
+        <legend class="choice-legend">Objetivo principal *</legend>
+        <label class="choice-item"><input type="checkbox" name="Objetivo principal" value="Gaming"> Gaming</label>
+        <label class="choice-item"><input type="checkbox" name="Objetivo principal" value="Streaming"> Streaming</label>
+        <label class="choice-item"><input type="checkbox" name="Objetivo principal" value="Escritório"> Escritório</label>
+        <label class="choice-item"><input type="checkbox" name="Objetivo principal" value="Edição vídeo/áudio"> Edição vídeo/áudio</label>
+        <label class="choice-item"><input type="checkbox" name="Objetivo principal" value="Modelação 3D"> Modelação 3D</label>
+        <label class="choice-item"><input type="checkbox" name="Objetivo principal" value="Workstation pro"> Workstation pro</label>
+        <label class="choice-item"><input type="checkbox" name="Objetivo principal" value="Servidor"> Servidor</label>
+        <label class="choice-item"><input type="checkbox" name="Objetivo principal" value="Outro"> Outro</label>
+        <div class="error-text"></div>
+      </fieldset>
+
+      <!-- 6 Outro objetivo -->
+      <div class="form-group">
+        <textarea id="outro_objetivo" name="Outro objetivo" rows="4" class="field-input textarea" placeholder=" "></textarea>
+        <label for="outro_objetivo" class="floating-label">Outro objetivo</label>
+      </div>
+
+      <!-- 7 Orçamento (radio) -->
+      <fieldset class="form-group choice-set" data-required>
+        <legend class="choice-legend">Orçamento *</legend>
+        <label class="choice-item"><input type="radio" name="Orçamento" value="Até 300€"> Até 300€</label>
+        <label class="choice-item"><input type="radio" name="Orçamento" value="300-500€"> 300-500€</label>
+        <label class="choice-item"><input type="radio" name="Orçamento" value="500-800€"> 500-800€</label>
+        <label class="choice-item"><input type="radio" name="Orçamento" value="800-1200€"> 800-1200€</label>
+        <label class="choice-item"><input type="radio" name="Orçamento" value="Mais de 1200€"> Mais de 1200€</label>
+        <div class="error-text"></div>
+      </fieldset>
+
+      <!-- 8 Peças usadas (radio) -->
+      <fieldset class="form-group choice-set" data-required>
+        <legend class="choice-legend">Aceita peças usadas? *</legend>
+        <label class="choice-item"><input type="radio" name="Peças usadas" value="Sim"> Sim</label>
+        <label class="choice-item"><input type="radio" name="Peças usadas" value="Não"> Não</label>
+        <label class="choice-item"><input type="radio" name="Peças usadas" value="Depende"> Depende</label>
+        <div class="error-text"></div>
+      </fieldset>
+
+      <!-- 9 Detalhes obrigatórios -->
+      <div class="form-group">
+        <textarea id="detalhes" name="Detalhes obrigatórios" rows="4" class="field-input textarea" placeholder=" "></textarea>
+        <label for="detalhes" class="floating-label">Detalhes obrigatórios</label>
+      </div>
+
+      <!-- 10 Iluminação (radio) -->
+      <fieldset class="form-group choice-set" data-required>
+        <legend class="choice-legend">Iluminação RGB? *</legend>
+        <label class="choice-item"><input type="radio" name="Iluminação" value="RGB"> RGB</label>
+        <label class="choice-item"><input type="radio" name="Iluminação" value="Discreto"> Discreto</label>
+        <label class="choice-item"><input type="radio" name="Iluminação" value="Indiferente"> Indiferente</label>
+        <div class="error-text"></div>
+      </fieldset>
+
+      <!-- 11 Nível de conhecimento (radio) -->
+      <fieldset class="form-group choice-set" data-required>
+        <legend class="choice-legend">Nível de conhecimento *</legend>
+        <label class="choice-item"><input type="radio" name="Nível de conhecimento" value="Leiga"> Leiga</label>
+        <label class="choice-item"><input type="radio" name="Nível de conhecimento" value="Intermédia"> Intermédia</label>
+        <label class="choice-item"><input type="radio" name="Nível de conhecimento" value="Avançada"> Avançada</label>
+        <div class="error-text"></div>
+      </fieldset>
+
+      <!-- 12 Periféricos (checkbox) -->
+      <fieldset class="form-group choice-set" data-required-multi>
+        <legend class="choice-legend">Periféricos *</legend>
+        <label class="choice-item"><input type="checkbox" name="Periféricos" value="Monitor"> Monitor</label>
+        <label class="choice-item"><input type="checkbox" name="Periféricos" value="Teclado"> Teclado</label>
+        <label class="choice-item"><input type="checkbox" name="Periféricos" value="Rato"> Rato</label>
+        <label class="choice-item"><input type="checkbox" name="Periféricos" value="Colunas/headset"> Colunas/headset</label>
+        <label class="choice-item"><input type="checkbox" name="Periféricos" value="Nenhum"> Nenhum</label>
+        <div class="error-text"></div>
+      </fieldset>
+
+      <!-- 13 Comentários adicionais -->
+      <div class="form-group">
+        <textarea id="comentarios" name="Comentários" rows="4" class="field-input textarea" placeholder=" "></textarea>
+        <label for="comentarios" class="floating-label">Comentários adicionais</label>
+      </div>
+
+      <button type="submit" class="btn btn--primary btn--full-width" id="submitBtn">Enviar</button>
+    </form>
+
+    <section id="successMessage" class="feedback-card hidden">
+      <h2>Obrigado! Recebemos o teu pedido 👍</h2>
+      <p>Em breve entraremos em contacto para discutirmos a tua build.</p>
+      <button class="btn btn--secondary" id="newForm">Enviar novo pedido</button>
+    </section>
+
+    <section id="errorMessage" class="feedback-card feedback-card--error hidden">
+      <h2>Ups! Algo correu mal 😕</h2>
+      <p>Não foi possível enviar o teu pedido. Tenta novamente em instantes.</p>
+      <button class="btn btn--secondary" id="tryAgain">Tentar novamente</button>
+    </section>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
